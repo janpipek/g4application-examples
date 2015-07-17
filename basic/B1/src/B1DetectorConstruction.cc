@@ -81,6 +81,7 @@ G4VPhysicalVolume* B1DetectorConstruction::CreateWorld()
                         false,                 //no boolean operation
                         0,                     //copy number
                         checkOverlaps);        //overlaps checking
+    return physWorld;
 }
 
 void B1DetectorConstruction::BuildGeometry(G4LogicalVolume* logicWorld)

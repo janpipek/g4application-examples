@@ -6,6 +6,8 @@
 #include "B1PrimaryGeneratorAction.hh"
 #include "B1DetectorConstruction.hh"
 
+MAKE_G4_PLUGIN( B1Plugin )
+
 B1Plugin::B1Plugin()
     : _detectorConstruction(new B1DetectorConstruction)
 { }
@@ -43,6 +45,7 @@ G4UserSteppingAction* B1Plugin::CreateSteppingAction()
 G4VUserPrimaryGeneratorAction* B1Plugin::CreatePrimaryGeneratorAction()
 {
     _primaryGeneratorAction.Set(new B1PrimaryGeneratorAction());
+    G4cout << "SELF " << this << " PRIMARY GENERATOR " << _primaryGeneratorAction.Get() << G4endl;
     return _primaryGeneratorAction.Get();
 }
 
